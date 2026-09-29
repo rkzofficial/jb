@@ -88,7 +88,7 @@ function watchR2(onPress) {
     onPress();
   }
 
-  log("press R2 to load kstuff, shadowmountplus, patches, pldmgr, file manager and etaHEN", "info");
+  log("press R2 to load kstuff-lite, shadowmountplus, patches, pldmgr, file manager and etaHEN", "info");
   window.addEventListener("keydown", onKey, true);
 }
 

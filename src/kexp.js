@@ -154,13 +154,13 @@ async function sendElf(name, payload, p, chain) {
 }
 
 const EXISTING_PAYLOADS = [
-  "kstuff.elf",
+  // "kstuff.elf",
+  "kstuff-lite_v1.11.elf",
   "shadowmountplus.elf",
   "etaHEN.elf",
 ];
 
 const NEW_PAYLOADS = [
-  "kstuff-lite_v1.11.elf",
   "patch-bundle-prospero.elf",
   "pldmgr_v0.5.2.elf",
   "ps5-web-file-manager_v1.9.elf",
@@ -174,7 +174,8 @@ export async function loadOptionalPayloads(p, chain, log) {
     const payload = await mapElf(name, p, chain);
     await sendElf(name, payload, p, chain);
     log(name + " sent");
-    if (name === "kstuff.elf")
+    // if (name === "kstuff.elf")
+    if (name === "kstuff-lite_v1.11.elf")
       await delay(3000);
   }
   for (const name of NEW_PAYLOADS) {
