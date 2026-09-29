@@ -155,15 +155,15 @@ async function sendElf(name, payload, p, chain) {
 
 const EXISTING_PAYLOADS = [
   // "kstuff.elf",
-  "kstuff-lite_v1.11.elf",
-  "shadowmountplus.elf",
-  "etaHEN.elf",
+  // "kstuff-lite_v1.11.elf",
+  // "shadowmountplus.elf",
+  // "etaHEN.elf",
 ];
 
 const NEW_PAYLOADS = [
-  "patch-bundle-prospero.elf",
+  // "patch-bundle-prospero.elf",
   "pldmgr_v0.5.2.elf",
-  "ps5-web-file-manager_v1.9.elf",
+  // "ps5-web-file-manager_v1.9.elf",
 ];
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
