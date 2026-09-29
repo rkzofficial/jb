@@ -153,18 +153,36 @@ async function sendElf(name, payload, p, chain) {
   }
 }
 
+const EXISTING_PAYLOADS = [
+  "kstuff.elf",
+  "shadowmountplus.elf",
+  "etaHEN.elf",
+];
+
+const NEW_PAYLOADS = [
+  "kstuff-lite_v1.11.elf",
+  "patch-bundle-prospero.elf",
+  "pldmgr_v0.5.2.elf",
+  "ps5-web-file-manager_v1.9.elf",
+];
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export async function loadOptionalPayloads(p, chain, log) {
   log("preparing optional payloads");
-  const kstuff = await mapElf("kstuff.elf", p, chain);
-  const shadowmount = await mapElf("shadowmountplus.elf", p, chain);
-  const etaHEN = await mapElf("etaHEN.elf", p, chain);
-  await sendElf("kstuff.elf", kstuff, p, chain);
-  log("kstuff.elf sent");
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  await sendElf("shadowmountplus.elf", shadowmount, p, chain);
-  log("shadowmountplus.elf sent");
-  await sendElf("etaHEN.elf", etaHEN, p, chain);
-  log("etaHEN.elf sent");
+  for (const name of EXISTING_PAYLOADS) {
+    const payload = await mapElf(name, p, chain);
+    await sendElf(name, payload, p, chain);
+    log(name + " sent");
+    if (name === "kstuff.elf")
+      await delay(3000);
+  }
+  for (const name of NEW_PAYLOADS) {
+    await delay(3000);
+    const payload = await mapElf(name, p, chain);
+    await sendElf(name, payload, p, chain);
+    log(name + " sent");
+  }
 }
 
 function patchShellcode(blob, symbols) {
