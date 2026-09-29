@@ -157,7 +157,7 @@ const EXISTING_PAYLOADS = [
   // "kstuff.elf",
   // "kstuff-lite_v1.11.elf",
   // "shadowmountplus.elf",
-  // "etaHEN.elf",
+  "etaHEN.elf",
 ];
 
 const NEW_PAYLOADS = [

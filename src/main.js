@@ -88,7 +88,7 @@ function watchR2(onPress) {
     onPress();
   }
 
-  log("press R2 to load pldmgr", "info");
+  log("press R2 to load etaHEN and pldmgr", "info");
   window.addEventListener("keydown", onKey, true);
 }
 
